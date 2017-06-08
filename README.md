@@ -15,7 +15,7 @@ in saved folder will be displayed and program will terminate.
 You can use these values to continue your clipping further.
 
 For example,  
-Next file number: 4. 
+Next file number: 4.
 Next saved number: 7.  
 You can use these values: **image-clipper.py** *./data_set* *./clips* *4* *7* *True* *False* *-1* *-1*
 

@@ -70,9 +70,10 @@ def on_mouse(event, x, y, flags, param):
 
 
 def main(argv):
-    if len(argv) < 9:
+    if len(argv) < 10:
         print("Usage: \"path_to_folder\" \"path_for_save\" \"position_to_start\""
-              "\"save_number\" \"show_clipped\" \"open_grayscale\" \"final_width\" \"final_height\"")
+              "\"save_number\" \"show_clipped\" \"open_grayscale\""
+              "\"histogram_equalization\" \"final_width\" \"final_height\"")
         exit(1)
 
     path_to_folder = argv[1]
@@ -90,8 +91,13 @@ def main(argv):
     else:
         open_mode = 1
 
-    final_width = int(argv[7])
-    final_height = int(argv[8])
+    if argv[7].lower() in ["true", "1"]:
+        histogram_equalization = True
+    else:
+        histogram_equalization = False
+
+    final_width = int(argv[8])
+    final_height = int(argv[9])
     walks = list(os.walk(path_to_folder))
     i = 0
     j = 0
@@ -121,9 +127,15 @@ def main(argv):
 
                     if parsed.GetImageData()["photometricinterpretation"] == "MONOCHROME1":
                         image = 255 - image
+
+                    if histogram_equalization:
+                        image = cv2.equalizeHist(image)
                 elif extension in [".bmp", ".pbm", ".pgm", ".ppm", ".sr", ".ras", ".jpeg", ".jpg", ".jpe", ".png",
                                    ".tiff", ".tif"]:
                     image = cv2.imread(path + os.sep + file, open_mode)
+
+                    if histogram_equalization:
+                        image = cv2.equalizeHist(image)
                 else:
                     continue
 

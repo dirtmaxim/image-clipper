@@ -100,19 +100,14 @@ def main(argv):
     final_height = int(argv[9])
     walks = list(os.walk(path_to_folder))
     i = 0
-    j = 0
     k = 1
-    flag = False
 
     while i < len(walks):
         path, directories, files = walks[i]
         files = [file for file in files if not file[0] == "."]
-
-        if flag:
-            j = len(files) - 1
+        j = 0
 
         while j < len(files):
-            flag = False
             file = files[j]
 
             if k < position_to_start:
@@ -200,7 +195,6 @@ def main(argv):
                     else:
                         if i > 0:
                             i -= 2
-                            flag = True
         i += 1
 
 

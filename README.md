@@ -3,7 +3,7 @@
 ##### Simple image clipper that has been made for manual data set preparation.
 
 ```
-Usage: image-clipper.py path_to_folder path_for_save position_to_start save_number show_clipped open_grayscale histogram_equalization final_width final_height
+Usage: image-clipper.py path_to_folder path_for_save position_to_start save_number show_clipped open_grayscale histogram_equalization_and_median_blur final_width final_height
 ```
 
 ```

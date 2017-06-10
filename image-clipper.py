@@ -130,6 +130,8 @@ def main(argv):
 
                     if histogram_equalization:
                         image = cv2.equalizeHist(image)
+                        image = cv2.medianBlur(image, 3)
+
                 elif extension in [".bmp", ".pbm", ".pgm", ".ppm", ".sr", ".ras", ".jpeg", ".jpg", ".jpe", ".png",
                                    ".tiff", ".tif"]:
                     image = cv2.imread(path + os.sep + file, open_mode)

@@ -54,7 +54,7 @@ def on_mouse(event, x, y, flags, param):
             elif on_mouse.final_width > 0 >= on_mouse.final_height:
                 rectangle_original = cv2.resize(rectangle_original, (on_mouse.final_width, rectangle_original.shape[0]))
 
-            cv2.imwrite("/Users/dirtmaxim/Desktop/scikit-learn/clips/" + str(on_mouse.number) + ".png",
+            cv2.imwrite(on_mouse.path_for_save + os.sep + str(on_mouse.number) + ".png",
                         rectangle_original)
             on_mouse.number += 1
             on_mouse.canceled = False

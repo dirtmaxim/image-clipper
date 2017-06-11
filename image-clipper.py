@@ -134,6 +134,7 @@ def main(argv):
                     if histogram_equalization:
                         image = cv2.equalizeHist(image)
                 else:
+                    j += 1
                     continue
 
                 if image.shape[0] > image.shape[1]:

@@ -164,7 +164,7 @@ def main(argv):
                 on_mouse.move = False
                 code = cv2.waitKey(0)
 
-                while code not in [2, 3, 27, 32]:
+                while code not in [2, 3, 27, 32, 127]:
                     if code in [90, 122]:
                         if not on_mouse.canceled:
                             on_mouse.number -= 1
@@ -189,6 +189,10 @@ def main(argv):
                     print("Next saved number: " + str(on_mouse.number) + ".")
                     exit(0)
                 elif code in [3, 32]:
+                    j += 1
+                elif code == 127:
+                    os.remove(path + os.sep + file)
+                    del files[j]
                     j += 1
                 else:
                     if j > 0:

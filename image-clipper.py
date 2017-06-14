@@ -77,7 +77,17 @@ def main(argv):
         exit(1)
 
     path_to_folder = argv[1]
+
+    if not os.path.exists(path_to_folder):
+        print("Path does not exist: " + path_to_folder + ". Check path and try again.")
+        exit(1)
+
     path_for_save = argv[2]
+
+    if not os.path.exists(path_for_save):
+        print("Path does not exist: " + path_for_save + ". Check path and try again.")
+        exit(1)
+
     position_to_start = int(argv[3])
     save_number = int(argv[4])
 
